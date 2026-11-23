@@ -2,7 +2,7 @@
 
 A single-binary Linux terminal service with an embedded browser client and a Rex-compatible native endpoint. Web, remote Rex and local Rex clients operate on the same sessions, tabs and tiled panes. The service runs as one unprivileged account, in the foreground, under systemd or directly from a terminal.
 
-Based on [rcarmo/rexweb](https://github.com/rcarmo/rexweb), with its webterm components and pinned Ghostty WASM renderer. Independent of Superlogical Rex. No proprietary Rex executable is bundled.
+Based on [rcarmo/webterm](https://github.com/rcarmo/webterm), with its webterm components and pinned Ghostty WASM renderer. Independent of Superlogical Rex. No proprietary Rex executable is bundled.
 
 ![rexweb workspace with a full-height build pane on the left and service log and release file panes stacked on the right](docs/three-pane-workspace.png)
 
