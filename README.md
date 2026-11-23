@@ -4,6 +4,8 @@ A single-binary Linux terminal service with an embedded browser client and a Rex
 
 Based on [rcarmo/rexweb](https://github.com/rcarmo/rexweb), with its webterm components and pinned Ghostty WASM renderer. Independent of Superlogical Rex. No proprietary Rex executable is bundled.
 
+![rexweb workspace with a full-height build pane on the left and service log and release file panes stacked on the right](docs/three-pane-workspace.png)
+
 ## Build and run
 
 Build dependencies: Go 1.24 or later, Bun, Git and make. Runtime: Linux, `/bin/sh` (or your chosen shell), system tools and unprivileged user namespaces. No Bun, Docker, external sandbox program, frontend directory or Go installation is needed on the target machine.
