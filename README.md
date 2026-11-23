@@ -8,7 +8,7 @@ Based on [rcarmo/webterm](https://github.com/rcarmo/webterm), with its webterm c
 
 ## Build and run
 
-Build dependencies: Go 1.24 or later, Bun, Git and make. Runtime: Linux, `/bin/sh` (or your chosen shell), system tools and unprivileged user namespaces. No Bun, Docker, external sandbox program, frontend directory or Go installation is needed on the target machine.
+Build dependencies: Go 1.26 or later, Bun, Git and make. Runtime: Linux, `/bin/sh` (or your chosen shell), system tools and unprivileged user namespaces. No Bun, Docker, external sandbox program, frontend directory or Go installation is needed on the target machine.
 
 ```sh
 make install-dev

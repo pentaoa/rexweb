@@ -113,8 +113,13 @@ try {
  const left=frames.find(f=>f.data==="LEFT-TOKEN")?.block;assert(left,"left pane received no input");
  await panes.nth(1).locator(".webterm-terminal").click();
  await page.locator('[data-modifier="ctrl"]').dispatchEvent("pointerdown");
+ const ctrlStart=frames.length;
  await typeMobile("c");
- const right=frames.find(f=>f.data==="\x03")?.block;assert(right&&right!==left,"Ctrl input was not routed to the right pane");
+ // The socket frame can arrive after the input batching delay on a busy CI runner.
+ const ctrlFrame=()=>frames.slice(ctrlStart).find(f=>f.data==="\x03");
+ const ctrlDeadline=Date.now()+2500;
+ while(!ctrlFrame()&&Date.now()<ctrlDeadline)await Bun.sleep(20);
+ const right=ctrlFrame()?.block;assert(right&&right!==left,"Ctrl input was not routed to the right pane");
  assert(await page.locator('[data-modifier="ctrl"]').getAttribute("class")!=="active","modifier did not reset");
  // A modifier selected on one pane must not leak to another pane.
  await page.locator('[data-modifier="ctrl"]').dispatchEvent("pointerdown");
